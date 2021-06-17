@@ -1,0 +1,11 @@
+ul.rating {
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+}
+
+li.rating {
+  margin-right: 0.2em;
+  color: orange;
+  text-align: start;
+}
