@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getProducts } from "../services/fakeProductServices";
 import Rating from "../common/rating";
+import Price from "../common/price";
 
 class SProducts extends Component {
   state = {
@@ -17,7 +18,7 @@ class SProducts extends Component {
       <div className="products">
         <ul>
           {products.map((product) => (
-            <li key={product._id}>
+            <li className="product" key={product._id}>
               <div className="flex-container product">
                 <div className="left-div">
                   <img
@@ -29,7 +30,7 @@ class SProducts extends Component {
                 <div className="right-div">
                   <h5>{product.name}</h5>
                   <Rating rating={product.rating} />
-                  <h4>{product.price}</h4>
+                  <Price mrp={29999} off={20} />
                 </div>
               </div>
             </li>
