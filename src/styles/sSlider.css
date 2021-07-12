@@ -1,0 +1,116 @@
+:root {
+  --widht-ratio: 300;
+  --height-ratio: 169;
+  --slide-width: 400px;
+  --slide-height: calc(
+    var(--height-ratio) * var(--slide-width) / var(--widht-ratio)
+  );
+  --slide-a-ratio: 300/169;
+  --slide-arrow-color: blue;
+  --slide-hover-color: red;
+}
+
+div.slider-wrapper {
+  margin: 0 100px;
+  width: calc(var(--slide-width) * 3);
+  height: max-content;
+  background-color: black;
+
+  position: relative;
+}
+
+a.slider-arrow {
+  position: absolute;
+  background-color: var(--slide-arrow-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+a.slider-arrow:hover {
+  background-color: var(--slide-hover-color);
+}
+
+a.slider-arrow.right {
+  right: 0%;
+}
+
+.slider-arrow-font {
+  font-size: 50px;
+}
+
+div.slider {
+  width: 1200px;
+  height: var(--slide-height);
+  display: flex;
+
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+div.slide {
+  flex-shrink: 0;
+  width: var(--slide-width);
+  height: var(--slide-height);
+  position: relative;
+  cursor: pointer;
+  background-color: red;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+div.slide-img {
+  position: absolute;
+  width: var(--slide-width);
+  aspect-ratio: var(--slide-a-ratio);
+  background-image: url(https://i1.wp.com/5ocial.com/wp-content/uploads/2020/12/2315DCF7-E77D-4A91-9217-9B00192BA01E.jpeg?fit=536%2C302&ssl=1);
+  background-size: var(--slide-width);
+
+  transform: scale(1);
+  transition: 0.3s transform;
+  transition-timing-function: ease;
+
+  z-index: 1;
+}
+
+div.slide-img-scaled {
+  transform: scale(1.047);
+  transition: 0.3s transform;
+  transition-timing-function: ease;
+  z-index: 1;
+}
+
+div.slide-info {
+  position: absolute;
+  z-index: 4;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 6;
+}
+
+div.slide-cat {
+  background-color: red;
+  width: max-content;
+  box-sizing: content-box;
+  padding: 0.2em 0.5em;
+  cursor: auto;
+}
+
+a.slide-title {
+  text-transform: capitalize;
+}
+
+a.slide-date {
+}

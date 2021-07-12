@@ -1,7 +1,9 @@
 ul.rating {
+  list-style: none;
   padding: 0px;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 
 li.rating {

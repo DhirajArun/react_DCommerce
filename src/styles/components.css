@@ -1,0 +1,44 @@
+ul {
+  list-style: none;
+}
+
+li.product {
+  padding: 1em 0 1em 0;
+  border-bottom: 2px solid grey;
+  border-top: 2px solid grey;
+}
+
+div.flex-container {
+  display: flex;
+}
+
+div.left-div {
+  width: 255px;
+  height: 218px;
+}
+
+img.product {
+  margin: auto;
+}
+
+div.right-div {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+div.amazon-rating {
+  display: flex;
+}
+
+.amazon-rating-down-arrow {
+  font-size: 8px;
+  margin: 0 0.8em 0 0.8em;
+  align-self: center;
+}
+
+div.only-rating {
+  position: relative;
+  cursor: pointer;
+}

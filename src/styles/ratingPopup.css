@@ -1,0 +1,39 @@
+:root {
+  --arrow-border-width: 12px;
+}
+
+div.amazon-rating-pop-up {
+  width: 300px;
+  border-radius: 3%;
+  padding: 1.5rem;
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 200%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+div.amazon-rating-arrow {
+  width: var(--arrow-border-width);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  border-width: var(--arrow-border-width);
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+  transform: translateX(-50%);
+}
+
+.amazon-rating .rating {
+  display: inline;
+}
+
+h5.amazon-rating {
+  display: inline;
+  margin: 0 0.2em 0 0.2em;
+}
+
+p.amazon-rating {
+  text-align: left;
+}

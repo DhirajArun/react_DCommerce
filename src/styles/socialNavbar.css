@@ -1,0 +1,88 @@
+:root {
+  --logo-size: 50px;
+  --logo-weight: 200;
+  --main-link-size: 14px;
+  --separator-width: 2px;
+  --separator-color: rgb(245, 245, 245);
+  --separator-margin: 0.35em;
+  --navbar-color: red;
+  --text-color: white;
+  --social-icon-space: 0.6rem;
+  --social-hover-color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div.s-navbar {
+  display: flex;
+  background-color: var(--navbar-color);
+  justify-content: space-around;
+  align-items: center;
+}
+
+div.s-navbar > a:hover {
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+a.s-navbar-logo {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: var(--logo-weight);
+  font-size: var(--logo-size);
+}
+
+a.s-navbar-logo:hover {
+  text-decoration: none;
+}
+
+ul.s-navbar-main-links {
+  list-style: none;
+  margin: 0;
+}
+
+li.main-link {
+  display: inline;
+  margin: 0px;
+}
+
+li.main-link > a {
+  text-transform: uppercase;
+  color: var(--text-color);
+
+  font-size: var(--main-link-size);
+  line-height: 0px;
+}
+
+li.main-link a::after {
+  content: " ";
+  background-color: var(--separator-color);
+  display: inline-block;
+  width: var(--separator-width);
+  height: var(--main-link-size);
+  margin: 0 var(--separator-margin);
+}
+
+ul.s-navbar-social-links {
+  margin: 0;
+}
+
+li.social-link {
+  display: inline;
+  margin: 0 var(--social-icon-space);
+  color: var(--text-color);
+}
+
+li.social-link > a {
+  color: var(--text-color);
+}
+
+li.social-link > a:hover {
+  color: var(--social-hover-color);
+}

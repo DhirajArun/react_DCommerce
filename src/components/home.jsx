@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SProducts from "./sProducts";
+import "../styles/components.css";
 
 class Home extends Component {
   state = {};

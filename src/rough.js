@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { getProducts } from "../services/fakeProductServices";
-import AmazonRating from "./amazonRating";
+import Rating from "../common/rating";
 import Price from "../common/price";
-import "../styles/components.css";
 
 class SProducts extends Component {
   state = {
@@ -30,7 +29,7 @@ class SProducts extends Component {
                 </div>
                 <div className="right-div">
                   <h5>{product.name}</h5>
-                  <AmazonRating rating={product.rating} />
+                  <Rating rating={product.rating} />
                   <Price mrp={29999} off={20} />
                 </div>
               </div>
@@ -42,4 +41,26 @@ class SProducts extends Component {
   }
 }
 
+
+
 export default SProducts;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

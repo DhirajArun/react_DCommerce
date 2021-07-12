@@ -1,0 +1,29 @@
+div.price-div {
+  display: flex;
+  align-items: flex-end;
+  margin: 0.5em 0 0 0;
+}
+
+.price {
+  margin: 0 0.5em 0 0;
+}
+
+h5.price {
+  color: rgb(212, 0, 0);
+}
+
+h5.price > span {
+  font-size: small;
+  vertical-align: top;
+}
+
+p.price-mrp {
+  text-decoration: line-through;
+  color: grey;
+  font-size: small;
+}
+
+p.price-off {
+  font-size: small;
+  font-weight: 550;
+}
