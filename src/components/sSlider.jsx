@@ -10,9 +10,12 @@ import "../styles/sSlider.css";
 
 class SSlider extends Component {
   state = {
-    currentFirstSlide: 1,
-    currentLastSlide: 3,
+    sliderSize: 3,
+    slideWidth: 400, // in px
+    slideHeight: 0, //in px
+    isArrowClicked: "no",
     slides: getSlides(),
+    pxValue: 0,
   };
 
   handleSlideHover(slide, value) {
@@ -24,39 +27,58 @@ class SSlider extends Component {
     this.setState({ slides });
   }
 
-  handleSlide(arrowType) {
-    const { currentFirstSlide, currentLastSlide } = this.state;
-
-    if (arrowType === "left") {
-      if (currentFirstSlide === 1) return;
+  handleSlide(value) {
+    const { pxValue, slides, sliderSize, slideWidth } = this.state;
+    if (value === "left") {
+      if (pxValue === 0) return;
       this.setState({
-        currentFirstSlide: currentFirstSlide - 1,
-        currentLastSlide: currentLastSlide - 1,
+        isArrowClicked: "left",
+        pxValue: pxValue - slideWidth,
       });
-      return;
+    } else if (value === "right") {
+      if (pxValue === (slides.length - sliderSize) * slideWidth) return;
+      this.setState({
+        isArrowClicked: "right",
+        pxValue: pxValue + slideWidth,
+      });
     }
-    if (arrowType === "right") {
-      if (currentLastSlide === this.state.slides.length) return;
-      this.setState({
-        currentFirstSlide: currentFirstSlide + 1,
-        currentLastSlide: currentLastSlide + 1,
-      });
-      return;
+  }
+
+  getSliderStyle() {
+    const { isArrowClicked, pxValue } = this.state;
+
+    if (isArrowClicked === "no") {
+      return {
+        left: "0px",
+      };
+    }
+    if (isArrowClicked === "left") {
+      return {
+        left: `-${pxValue}px`,
+        transition: "0.5s left",
+        transitionTimingFunction: "ease",
+      };
+    }
+    if (isArrowClicked === "right") {
+      return {
+        left: `-${pxValue}px`,
+        transition: "0.5s left",
+        transitionTimingFunction: "ease",
+      };
     }
   }
 
   render() {
-    const { slides, currentFirstSlide, currentLastSlide } = this.state;
+    const { slides } = this.state;
     return (
       <div className="slider-wrapper">
-        <a
-          className="slider-arrow left"
+        <button
+          className="slider-arrow"
           onClick={() => this.handleSlide("left")}
-          href={`#slide${currentFirstSlide - 1}`}
         >
           <FontAwesomeIcon icon={faChevronLeft} className="slider-arrow-font" />
-        </a>
-        <div className="slider">
+        </button>
+        <div className="slider" style={this.getSliderStyle()}>
           {slides.map((slide) => (
             <div
               key={slide.title}
@@ -85,16 +107,15 @@ class SSlider extends Component {
             </div>
           ))}
         </div>
-        <a
+        <button
           className="slider-arrow right"
-          href={`#slide${currentLastSlide + 1}`}
           onClick={() => this.handleSlide("right")}
         >
           <FontAwesomeIcon
             icon={faChevronRight}
             className="slider-arrow-font"
           />
-        </a>
+        </button>
       </div>
     );
   }

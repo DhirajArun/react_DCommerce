@@ -56,5 +56,5 @@ const slides = [
   ]
 
   export function getSlides() {
-    return slides
+    return slides;
   }

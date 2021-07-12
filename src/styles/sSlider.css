@@ -17,9 +17,10 @@ div.slider-wrapper {
   background-color: black;
 
   position: relative;
+  overflow: hidden;
 }
 
-a.slider-arrow {
+button.slider-arrow {
   position: absolute;
   background-color: var(--slide-arrow-color);
   display: flex;
@@ -32,11 +33,11 @@ a.slider-arrow {
   z-index: 3;
 }
 
-a.slider-arrow:hover {
+button.slider-arrow:hover {
   background-color: var(--slide-hover-color);
 }
 
-a.slider-arrow.right {
+button.slider-arrow.right {
   right: 0%;
 }
 
@@ -49,10 +50,7 @@ div.slider {
   height: var(--slide-height);
   display: flex;
 
-  -webkit-overflow-scrolling: touch;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  position: relative;
 }
 
 div.slide {
@@ -63,7 +61,6 @@ div.slide {
   cursor: pointer;
   background-color: red;
   overflow: hidden;
-  scroll-snap-align: start;
 }
 
 div.slide-img {
