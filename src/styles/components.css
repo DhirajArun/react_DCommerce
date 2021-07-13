@@ -42,3 +42,149 @@ div.only-rating {
   position: relative;
   cursor: pointer;
 }
+
+/* collapser */
+
+ul.collapser li {
+  margin-bottom: 0.5em;
+}
+
+/* bottom margin */
+
+.btm-o {
+  margin-bottom: 0.5rem;
+}
+.btm-oo {
+  margin-bottom: 1rem;
+}
+.btm-ooo {
+  margin-bottom: 1.5rem;
+}
+.btm-oooo {
+  margin-bottom: 2rem;
+}
+
+/* Right margin */
+
+.rtm-o {
+  margin-bottom: 0.5rem;
+}
+.rtm-oo {
+  margin-bottom: 1rem;
+}
+.rtm-ooo {
+  margin-bottom: 1.5rem;
+}
+.rtm-oooo {
+  margin-bottom: 2rem;
+}
+
+/* font sizes */
+
+.font-std {
+  font-size: 13px;
+  line-height: 1.5em;
+}
+
+.font-std-bd {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+
+.font-sm {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5em;
+}
+
+.font-xsm {
+  font-size: 11px;
+  line-height: 1.5em;
+}
+
+/* padding */
+
+.pad- {
+  padding: 0.25rem;
+}
+
+.pad-o {
+  padding: 0.5rem; /* for text and buttons */
+}
+
+.pad-oo {
+  padding: 1rem; /* for boxes */
+}
+
+/* list-types */
+ul.col > li {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* signInForm */
+
+div.signin-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.form-nav {
+  display: flex;
+  justify-content: center;
+}
+
+div.signin-form > div {
+  flex-grow: 0;
+  width: 350px;
+}
+
+div.signin-form label {
+  display: block;
+}
+
+#user-name {
+  display: block;
+  width: 100%;
+}
+
+div.main-form {
+  padding: 1rem;
+  text-align: left;
+  width: max-content;
+  border: 1px solid #767676;
+  border-radius: 2%;
+}
+
+button.btn-continue {
+  background-color: orange;
+}
+div.secondary-form {
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+div.separator-bar {
+  height: 1px;
+  width: 100%;
+  background-color: #767676;
+}
+
+p.new-t-a {
+  line-height: 1rem;
+  position: relative;
+  bottom: 0.5em;
+  color: #767676;
+  background-color: white;
+  width: max-content;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 0.25rem;
+}
+
+button.btn-signup {
+  background-color: #e7e9ec;
+}

@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Search from "./search";
 import "../styles/navbar.css";
 import { getCatlogs } from "../services/fakeCatlogService";
+import AmazonLogo from "./amazonLogo";
 
 class Navbar extends Component {
   state = {
@@ -17,10 +18,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="nav-bar">
-        <div className="logo">
-          <span className="logo-bg"></span>
-          <span className="logo-in">.in</span>
-        </div>
+        <AmazonLogo />
 
         <div className="location">
           <div className="location-icon">

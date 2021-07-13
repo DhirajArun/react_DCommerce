@@ -11,6 +11,7 @@
 }
 
 div.slider-wrapper {
+  box-sizing: content-box;
   margin: 0 100px;
   width: calc(var(--slide-width) * 3);
   height: max-content;
