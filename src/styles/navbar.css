@@ -46,26 +46,6 @@ button {
   color: white;
 }
 
-div.logo {
-  display: flex;
-}
-
-.logo-bg {
-  display: block;
-  width: 97px;
-  height: 30px;
-  background-size: 350px;
-  background-image: url("https://images-eu.ssl-images-amazon.com/images/G/31/gno/sprites/nav-sprite-global-2x-hm-dsk-reorg._CB405936311_.png");
-  background-position: -10px -51px;
-}
-
-.logo-in {
-  font-size: 14px;
-  font-weight: 600;
-  position: relative;
-  top: 4.3px;
-}
-
 div.location {
   display: flex;
   align-items: flex-end;

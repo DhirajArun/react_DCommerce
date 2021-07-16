@@ -11,7 +11,7 @@ function Collapser(props) {
     setOpen(true);
   };
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", fontSize: "13px" }}>
       <FontAwesomeIcon
         icon={isOpened ? faCaretDown : faCaretRight}
         style={{
@@ -25,9 +25,8 @@ function Collapser(props) {
         className="collapser"
       >
         <li style={{ display: "block" }}>
-          <span> </span>
           <a href="" onClick={handleClick}>
-            Need help?
+            {props.title}
           </a>
         </li>
         {isOpened && props.children}

@@ -5,11 +5,7 @@ import "../styles/components.css";
 class Home extends Component {
   state = {};
   render() {
-    return (
-      <React.Fragment>
-        <SProducts />;
-      </React.Fragment>
-    );
+    return <React.Fragment></React.Fragment>;
   }
 }
 

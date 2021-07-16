@@ -51,6 +51,10 @@ ul.collapser li {
 
 /* bottom margin */
 
+.btm- {
+  margin-bottom: 0.25rem;
+}
+
 .btm-o {
   margin-bottom: 0.5rem;
 }
@@ -66,17 +70,21 @@ ul.collapser li {
 
 /* Right margin */
 
+.rtm- {
+  margin-right: 0.25rem;
+}
+
 .rtm-o {
-  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
 }
 .rtm-oo {
-  margin-bottom: 1rem;
+  margin-right: 1rem;
 }
 .rtm-ooo {
-  margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
 }
 .rtm-oooo {
-  margin-bottom: 2rem;
+  margin-right: 2rem;
 }
 
 /* font sizes */
@@ -117,15 +125,69 @@ ul.collapser li {
   padding: 1rem; /* for boxes */
 }
 
+/* forms */
+
+label.sign {
+  font-size: 13px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+input.sign {
+  font-size: 13px;
+  padding: 0.25rem;
+  width: 100%;
+  display: block;
+}
+
+p.sign {
+  font-size: 13px;
+  font-weight: 525;
+  line-height: 1.5em;
+  margin-bottom: 0;
+}
+
 /* list-types */
 ul.col > li {
   display: inline-block;
   margin-right: 0.5rem;
 }
 
+/* anchor button */
+button.btn-anchor {
+  font-size: 13px;
+  padding: 0.5rem;
+  background-color: #e7e9ec;
+}
+
+button.btn-anchor:hover {
+  background-color: #cacaca;
+}
+
+button.btn-anchor a {
+  text-decoration: none;
+  color: black;
+}
+
+button.btn-anchor a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/* submit button */
+button.btn-submit {
+  padding: 0.5rem;
+  background-color: orange;
+}
+
+button.btn-submit:hover {
+  background-color: rgb(241, 157, 1);
+}
+
 /* signInForm */
 
-div.signin-form {
+div.sign-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -142,15 +204,6 @@ div.signin-form > div {
   width: 350px;
 }
 
-div.signin-form label {
-  display: block;
-}
-
-#user-name {
-  display: block;
-  width: 100%;
-}
-
 div.main-form {
   padding: 1rem;
   text-align: left;
@@ -159,12 +212,10 @@ div.main-form {
   border-radius: 2%;
 }
 
-button.btn-continue {
-  background-color: orange;
-}
 div.secondary-form {
   padding: 2.5rem 0;
   text-align: center;
+  width: 350px;
 }
 
 div.separator-bar {
@@ -185,6 +236,76 @@ p.new-t-a {
   padding: 0 0.25rem;
 }
 
-button.btn-signup {
-  background-color: #e7e9ec;
+.div-style {
+  display: grid;
+  grid-template-columns: ;
+}
+
+/* option input */
+
+div.option-input-main {
+  display: grid;
+  grid-template-columns: max-content 75%;
+}
+
+input.option-input-in {
+  font-size: 13px;
+  display: inline-block;
+  padding: 0.25rem;
+}
+
+/* mini select  */
+
+div.mini-select {
+  position: relative;
+  height: 100%;
+  width: max-content;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+div.mini-select-title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-radius: 3px;
+  border: 0.5px solid black;
+  width: max-content;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+p.mini-select-title {
+  margin-bottom: 0;
+  display: inline-block;
+  margin-right: 0.25rem;
+  font-size: 13px;
+}
+
+ul.mini-select {
+  position: absolute;
+  top: 0px;
+  border-radius: 3px;
+  width: max-content;
+  padding: 0.2rem 0.01px;
+  border: 0.5px solid black;
+  margin-top: 0px;
+  background-color: white;
+  cursor: pointer;
+}
+
+li.mini-select {
+  padding: 0.2rem;
+  padding-right: 0.5rem;
+}
+
+li.mini-select:hover {
+  background-color: grey;
+}
+
+/* simpleFooter */
+
+div.form-footer {
+  font-size: 11px;
 }
