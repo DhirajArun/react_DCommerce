@@ -3,20 +3,9 @@ import Input from "./input";
 import MiniSelect from "./miniSelect";
 
 class OptionInput extends Component {
-  state = { selected: 0 };
-  countryCodes = [
-    { fLabel: "Albania +355", sLabel: "AL +355" },
-    { fLabel: "Afghanistan +93", sLabel: "AF +93" },
-    { fLabel: "Algeria +213", sLabel: "DZ +213" },
-    { fLabel: "India +91", sLabel: "IN +91" },
-  ];
-
-  handleSelect = (index) => {
-    this.setState({ selected: index });
-  };
-
   render() {
-    const { name, label, ...rest } = this.props;
+    const { name, label, error, options, selected, onSelect, ...rest } =
+      this.props;
 
     return (
       <div>
@@ -31,16 +20,25 @@ class OptionInput extends Component {
           }}
         >
           <MiniSelect
-            options={this.countryCodes}
-            selected={this.state.selected}
-            onSelect={this.handleSelect}
+            options={options}
+            selected={selected}
+            onSelect={onSelect}
           />
+
           <input
-            className="option-input-in sign"
+            className={
+              error ? "sign option-input-in sign-error" : "sign option-input-in"
+            }
             name={name}
             id={name}
             {...rest}
           />
+          {error && (
+            <p className="sign sign-error sign-option-error">
+              <span>!</span>
+              {error}
+            </p>
+          )}
         </div>
       </div>
     );

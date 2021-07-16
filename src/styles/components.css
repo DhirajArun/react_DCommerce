@@ -140,12 +140,34 @@ input.sign {
   width: 100%;
   display: block;
 }
+input.sign-error {
+  border-radius: 5px;
+  border: 0.05rem solid red;
+}
+
+input.sign-error:focus {
+  outline: red;
+}
 
 p.sign {
   font-size: 13px;
   font-weight: 525;
   line-height: 1.5em;
   margin-bottom: 0;
+}
+
+p.sign-error {
+  margin-top: 0.25rem;
+  color: red;
+}
+p.sign-error > span {
+  font-style: italic;
+  margin-right: 0.5rem;
+}
+
+p.sign-option-error {
+  grid-column-start: 2;
+  grid-row-start: 2;
 }
 
 /* list-types */
@@ -260,7 +282,6 @@ div.mini-select {
   position: relative;
   height: 100%;
   width: max-content;
-  box-sizing: border-box;
   font-size: 13px;
 }
 
@@ -268,11 +289,11 @@ div.mini-select-title-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   border-radius: 3px;
-  border: 0.5px solid black;
+  border: 0.05rem solid #767676;
   width: max-content;
-  padding: 0 0.5rem;
+  height: 100%;
+  padding: 0.25rem 0.5rem;
   cursor: pointer;
 }
 

@@ -2,13 +2,24 @@ import React, { Component } from "react";
 
 class Input extends Component {
   render() {
-    const { label, name, ...rest } = this.props;
+    const { label, name, error, ...rest } = this.props;
     return (
       <div className="btm-oo">
         <label htmlFor={name} className="sign">
           {label}
         </label>
-        <input name={name} id={name} className="font-std sign" {...rest} />
+        <input
+          name={name}
+          id={name}
+          className={error ? "font-std sign sign-error" : "font-std sign"}
+          {...rest}
+        />
+        {error && (
+          <p className="sign sign-error">
+            <span>!</span>
+            {error}
+          </p>
+        )}
       </div>
     );
   }
