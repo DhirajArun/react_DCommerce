@@ -12,13 +12,7 @@ class OptionInput extends Component {
         <label htmlFor={name} className="sign" style={{ display: "block" }}>
           {label}
         </label>
-        <div
-          className="option-input-main btm-oo"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "auto 72%",
-          }}
-        >
+        <div className="option-input-main btm-oo">
           <MiniSelect
             options={options}
             selected={selected}

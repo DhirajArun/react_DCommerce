@@ -267,7 +267,7 @@ p.new-t-a {
 
 div.option-input-main {
   display: grid;
-  grid-template-columns: max-content 75%;
+  grid-template-columns: auto 75%;
 }
 
 input.option-input-in {
@@ -322,11 +322,17 @@ li.mini-select {
 }
 
 li.mini-select:hover {
-  background-color: grey;
+  background-color: #767676;
 }
 
 /* simpleFooter */
 
 div.form-footer {
   font-size: 11px;
+}
+
+div.form-phone-div {
+  display: grid;
+  grid-template-columns: auto 75%;
+  grid-template-rows: min-content;
 }

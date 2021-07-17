@@ -2,12 +2,14 @@ import React, { Component } from "react";
 
 class Input extends Component {
   render() {
-    const { label, name, error, ...rest } = this.props;
+    const { label, name, error, btm, ...rest } = this.props;
     return (
-      <div className="btm-oo">
-        <label htmlFor={name} className="sign">
-          {label}
-        </label>
+      <div className={btm ? "btm-oo" : ""}>
+        {label && (
+          <label htmlFor={name} className="sign">
+            {label}
+          </label>
+        )}
         <input
           name={name}
           id={name}
@@ -27,6 +29,7 @@ class Input extends Component {
 
 Input.defaultProps = {
   type: "text",
+  btm: true,
 };
 
 export default Input;
@@ -37,3 +40,4 @@ export default Input;
 // value
 // onChange
 // type -- optional
+// btm -- optional

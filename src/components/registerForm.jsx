@@ -5,6 +5,7 @@ import SubmitButton from "../common/submitButton";
 import FormDiv from "./formDiv";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import MiniSelect from "../common/miniSelect";
 
 class RegisterForm extends Component {
   state = {
@@ -41,6 +42,14 @@ class RegisterForm extends Component {
               selected={currentCoutryCodeIndex}
               onSelect={this.handleCodeSelect}
             />
+            <div className="form-phone-div btm-oo">
+              <MiniSelect
+                options={this.countryCodes}
+                selected={currentCoutryCodeIndex}
+                onSelect={this.handleCodeSelect}
+              />
+              <Input name="phone" btm={false} />
+            </div>
             <Input label="Email (Optional)" name="email" value={email} />
             <Input
               label="Password"
