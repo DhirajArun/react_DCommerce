@@ -1,15 +1,19 @@
 import React, { Component } from "react";
-import Input from "../common/input";
-import OptionInput from "../common/optionInput";
-import SubmitButton from "../common/submitButton";
 import FormDiv from "./formDiv";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
-import MiniSelect from "../common/miniSelect";
+import Joi, { allow } from "joi";
+import Form from "../common/form";
 
-class RegisterForm extends Component {
+class RegisterForm extends Form {
   state = {
-    data: { name: "", mobileNumber: "", email: "", password: "" },
+    data: {
+      name: "",
+      mobileNumber: "",
+      email: "",
+      password: "",
+      countryCode: 3,
+    },
     errors: {},
     currentCoutryCodeIndex: 3,
   };
@@ -20,50 +24,62 @@ class RegisterForm extends Component {
     { fLabel: "India +91", sLabel: "IN +91" },
   ];
 
-  handleCodeSelect = (index) => {
-    this.setState({ currentCoutryCodeIndex: index });
+  schema = {
+    name: Joi.string().max(20).required().label("Name"),
+    mobileNumber: Joi.string()
+      .pattern(/^[0-9]{10}$/)
+      .required()
+      .label("Mobile Number"),
+    email: Joi.string()
+      .email({ tlds: { allow: false } })
+      .label("Email"),
+    password: Joi.string().min(6).max(15).required().label("Password"),
+    countryCode: Joi.number()
+      .integer()
+      .min(0)
+      .max(this.countryCodes.length - 1)
+      .required(),
   };
 
-  render() {
-    const { currentCoutryCodeIndex, errors } = this.state;
-    const { name, mobileNumber, email, password } = this.state.data;
+  // schema = Joi.object({
+  //   name: Joi.string().min(1).max(20).required().label("Name"),
+  //   mobileNumber: Joi.string()
+  //     .length(10)
+  //     .pattern(/^[0-9]{10}$/)
+  //     .require()
+  //     .label("Mobile Number"),
+  //   email: Joi.string().email(),
+  //   password: Joi.string().min(6).max(15).required().label("Password"),
+  //   countryCodes: Joi.number()
+  //     .integer()
+  //     .min(0)
+  //     .max(this.countryCodes.length - 1)
+  //     .require(),
+  // });
 
+  render() {
     return (
       <div className="sign-form">
         <FormDiv>
-          <h1>Create Account</h1>
-          <form className="btm-ooo">
-            <Input label="Your Name" name="name" value={name} />
-            <OptionInput
-              name="mobileNumber"
-              label="Mobile Number"
-              value={mobileNumber}
-              options={this.countryCodes}
-              selected={currentCoutryCodeIndex}
-              onSelect={this.handleCodeSelect}
-            />
-            <div className="form-phone-div btm-oo">
-              <MiniSelect
-                options={this.countryCodes}
-                selected={currentCoutryCodeIndex}
-                onSelect={this.handleCodeSelect}
-              />
-              <Input name="phone" btm={false} />
-            </div>
-            <Input label="Email (Optional)" name="email" value={email} />
-            <Input
-              label="Password"
-              name="password"
-              type="password"
-              value={password}
-            />
+          {this.renderTitle("Create Account")}
+          <form className="btm-ooo" onSubmit={this.handleSubmit}>
+            {this.renderInput("name", "Your Name")}
+            {this.renderInputWS(
+              "mobileNumber",
+              "countryCode",
+              "Mobile Number",
+              this.countryCodes
+            )}
+            {this.renderInput("email", "Email")}
+            {this.renderInput("password", "Password", "password")}
+
             <div className="btm-ooo">
               <p className="sign">
                 We will send you a text to verify your phone.
               </p>
               <p className="sign">Message and Data rates may apply.</p>
             </div>
-            <SubmitButton>Continue</SubmitButton>
+            {this.renderSubmitButton("Continue")}
           </form>
           <div>
             <p className="sign">

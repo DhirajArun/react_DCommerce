@@ -3,12 +3,13 @@ import AmazonLogo from "./amazonLogo";
 import Collapser from "../common/collapser";
 import Input from "../common/input";
 import "../styles/components.css";
-import { Link } from "react-router-dom";
+import Form from "../common/form";
 import SubmitButton from "../common/submitButton";
 import AnchorBtn from "../common/anchorBtn";
 import FormDiv from "./formDiv";
+import Joi from "joi";
 
-class SignInForm extends Component {
+class SignInForm extends Form {
   state = {
     data: {
       username: "",
@@ -17,31 +18,19 @@ class SignInForm extends Component {
     errors: {},
   };
 
-  handleChange = ({ currentTarget: input }) => {
-    const { data } = this.state;
-    data[input.name] = input.value;
-    this.setState({ data });
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted");
+  schema = {
+    username: Joi.string().max(40).required().label("Username"),
+    password: Joi.string().min(6).max(15).required().label("Password"),
   };
 
   render() {
-    const { data, errors } = this.state;
     return (
       <div className="sign-form">
         <FormDiv>
-          <h1 className="type-header btm-oo">Sign-In</h1>
+          {this.renderTitle("Sign-In")}
           <form onSubmit={this.handleSubmit} className="btm-ooo">
-            <Input
-              label="Email or mobile number"
-              name="username"
-              value={data.username}
-              onChange={this.handleChange}
-            />
-            <SubmitButton>Continue</SubmitButton>
+            {this.renderInput("username", "Email or mobile Number")}
+            {this.renderSubmitButton("Continue")}
           </form>
           <p className="font-sm">
             By continuing, you agree to Amazon's{" "}

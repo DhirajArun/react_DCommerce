@@ -9,6 +9,9 @@ import RegisterForm from './components/registerForm';
 import SimpleFooter from './components/simpleFooter';
 
 
+import "./styles/textNLink.css"
+
+
 function App() {
   const currentPath = useLocation().pathname;
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function AmazonLogo(props) {
   function getBg() {
@@ -26,7 +27,7 @@ function AmazonLogo(props) {
     }
   }
   return (
-    <div style={{ display: "flex" }}>
+    <Link to="/" style={{ display: "flex" }} className="no-link">
       <span style={getBg()}></span>
       <span
         style={{
@@ -38,7 +39,7 @@ function AmazonLogo(props) {
       >
         .in
       </span>
-    </div>
+    </Link>
   );
 }
 

@@ -1,3 +1,8 @@
+:root {
+  --sign-border: 0.05rem solid #767676;
+  --sign-border-radius: 3px;
+}
+
 ul {
   list-style: none;
 }
@@ -127,22 +132,36 @@ ul.collapser li {
 
 /* forms */
 
+.sign {
+  display: block;
+}
+
 label.sign {
   font-size: 13px;
   font-weight: 700;
-  display: block;
   margin-bottom: 0.4rem;
 }
 
-input.sign {
+input.sign,
+div.sign,
+select.sign {
   font-size: 13px;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   width: 100%;
-  display: block;
+  height: 1.85rem;
+  border-radius: var(--sign-border-radius);
+  border: var(--sign-border);
+  cursor: pointer;
 }
-input.sign-error {
-  border-radius: 5px;
-  border: 0.05rem solid red;
+
+input.sign {
+  cursor: text;
+}
+
+input.sign-error,
+div.sign-error,
+select.sign-error {
+  border-color: red;
 }
 
 input.sign-error:focus {
@@ -165,9 +184,18 @@ p.sign-error > span {
   margin-right: 0.5rem;
 }
 
-p.sign-option-error {
-  grid-column-start: 2;
-  grid-row-start: 2;
+div.input-with-select {
+  display: grid;
+  grid-template-columns: auto 75%;
+  grid-template-rows: min-content;
+}
+
+/* signInForm */
+div.sign-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* list-types */
@@ -205,15 +233,6 @@ button.btn-submit {
 
 button.btn-submit:hover {
   background-color: rgb(241, 157, 1);
-}
-
-/* signInForm */
-
-div.sign-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 div.form-nav {
@@ -258,11 +277,6 @@ p.new-t-a {
   padding: 0 0.25rem;
 }
 
-.div-style {
-  display: grid;
-  grid-template-columns: ;
-}
-
 /* option input */
 
 div.option-input-main {
@@ -276,35 +290,36 @@ input.option-input-in {
   padding: 0.25rem;
 }
 
-/* mini select  */
+/* c-select  */
 
-div.mini-select {
+div.c-select {
   position: relative;
   height: 100%;
-  width: max-content;
+  width: 100%;
   font-size: 13px;
 }
 
-div.mini-select-title-wrapper {
+div.c-select-maxcontent {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 3px;
-  border: 0.05rem solid #767676;
   width: max-content;
-  height: 100%;
-  padding: 0.25rem 0.5rem;
-  cursor: pointer;
 }
 
-p.mini-select-title {
+div.c-select-full {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p.c-select-title {
   margin-bottom: 0;
-  display: inline-block;
   margin-right: 0.25rem;
   font-size: 13px;
 }
 
-ul.mini-select {
+ul.c-select {
   position: absolute;
   top: 0px;
   border-radius: 3px;
@@ -316,23 +331,16 @@ ul.mini-select {
   cursor: pointer;
 }
 
-li.mini-select {
+li.c-select {
   padding: 0.2rem;
   padding-right: 0.5rem;
 }
 
-li.mini-select:hover {
+li.c-select:hover {
   background-color: #767676;
 }
 
 /* simpleFooter */
-
 div.form-footer {
   font-size: 11px;
-}
-
-div.form-phone-div {
-  display: grid;
-  grid-template-columns: auto 75%;
-  grid-template-rows: min-content;
 }

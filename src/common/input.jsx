@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import InputError from "./inputError";
+import withSignBottomMargin from "../HOC/withSignBottomMargin";
 
 class Input extends Component {
   render() {
     const { label, name, error, btm, ...rest } = this.props;
     return (
-      <div className={btm ? "btm-oo" : ""}>
+      <React.Fragment>
         {label && (
           <label htmlFor={name} className="sign">
             {label}
@@ -16,13 +18,8 @@ class Input extends Component {
           className={error ? "font-std sign sign-error" : "font-std sign"}
           {...rest}
         />
-        {error && (
-          <p className="sign sign-error">
-            <span>!</span>
-            {error}
-          </p>
-        )}
-      </div>
+        <InputError error={error} />
+      </React.Fragment>
     );
   }
 }
@@ -32,11 +29,12 @@ Input.defaultProps = {
   btm: true,
 };
 
-export default Input;
+export default withSignBottomMargin(Input);
 
 //props needed:
-// label
+// label -- optional
 // name
+// error
 // value
 // onChange
 // type -- optional
