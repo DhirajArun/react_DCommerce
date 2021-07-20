@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function AnchorBtn({ to }) {
   return (
-    <button className="btn-anchor">
-      <Link to={to}>Create your Amazon account</Link>
-    </button>
+    <Link to={to} className="anchor-btn no-link">
+      Create your Amazon account
+    </Link>
   );
 }
 

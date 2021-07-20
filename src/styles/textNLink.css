@@ -7,3 +7,18 @@ a.no-link:hover {
   text-decoration: none;
   color: inherit;
 }
+
+a.block {
+  display: block;
+}
+
+a.anchor-btn {
+  font-size: 13px;
+  padding: 0.5rem;
+  background-color: #e7e9ec;
+  display: block;
+}
+
+a.anchor-btn:hover {
+  background-color: #cacaca;
+}

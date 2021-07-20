@@ -7,9 +7,11 @@ import NotFound from './common/not-found';
 import SignInForm from './components/signInForm';
 import RegisterForm from './components/registerForm';
 import SimpleFooter from './components/simpleFooter';
+import Arrow from "./common/arrow"
 
 
 import "./styles/textNLink.css"
+import "./styles/form.css"
 
 
 function App() {
@@ -18,9 +20,15 @@ function App() {
   const navbar = currentPath === "/signin" || currentPath === "/register" ? <SimpleNavBar /> : <Navbar />
   const footer = currentPath === "/signin" || currentPath === "/register" ? <SimpleFooter /> : null;
 
+
+  
+
   return (
     <div className="App">
       {navbar}
+      <div id="arrowwwwww" style={{width: "200px", height: "200px", backgroundColor: "red", position: "relative", margin: "20px"}}>
+        <Arrow className="aa" color = "red" direction="top" />
+      </div>
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/signin" component={SignInForm} />

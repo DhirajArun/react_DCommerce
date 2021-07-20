@@ -19,7 +19,6 @@ class Navbar extends Component {
     return (
       <div className="nav-bar">
         <AmazonLogo />
-
         <div className="location">
           <div className="location-icon">
             <FontAwesomeIcon icon={faMapMarkerAlt} />
@@ -34,7 +33,7 @@ class Navbar extends Component {
           <span className="lang-flag"></span>
           <FontAwesomeIcon icon={faSortDown} style={{ fontSize: "13px" }} />
         </div>
-        <div className="sign ln-text">
+        <div className="ln-text">
           <span className="sign-hello little">Hello, sign in</span>
           <h5 className="non-little">
             Account & Lists <FontAwesomeIcon icon={faSortDown} />

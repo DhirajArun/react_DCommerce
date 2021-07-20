@@ -1,44 +1,42 @@
 import React from "react";
 
-function Arrow({ arrowSize, direction, color }) {
-  const styles = {
+function Arrow({ arrowSize, direction, color, position }) {
+  let styles = {
     borderWidth: arrowSize,
     width: arrowSize,
     position: "absolute",
     borderStyle: "solid",
-    bottom: "100%",
-    left: "50%",
     borderColor: calcBorderColor(),
-    transform: "translateX(-50%)",
   };
+  styles = { ...styles, ...calcPosition() };
 
-  function calcPosition(){
-      const positions = {}
-      
-  }
-
-  function calcBottomPosition() {
-    if (direction === "top") {
-      return "100%";
-    } else if (direction === "bottom") {
-      return "100%";
-    } else if (direction === "left") {
-      return "100%";
-    } else if (direction === "right") {
-      return "100%";
+  function calcPosition() {
+    const positions = {};
+    switch (direction) {
+      case "top":
+        positions.bottom = "100%";
+        positions.left = position;
+        positions.transform = "translateX(-50%)";
+        break;
+      case "bottom":
+        positions.top = "100%";
+        positions.left = position;
+        positions.transform = "translateX(-50%)";
+        break;
+      case "left":
+        positions.right = "100%";
+        positions.bottom = position;
+        positions.transform = "translateY(50%)";
+        break;
+      case "right":
+        positions.left = "100%";
+        positions.bottom = position;
+        positions.transform = "translateY(50%)";
+        break;
+      default:
+        console.log("wtf");
     }
-  }
-
-  function calcLeftPosition() {
-    if (direction === "top") {
-      return "100%";
-    } else if (direction === "bottom") {
-      return "100%";
-    } else if (direction === "left") {
-      return "100%";
-    } else if (direction === "right") {
-      return "100%";
-    }
+    return positions;
   }
 
   function calcBorderColor() {
@@ -60,6 +58,9 @@ Arrow.defaultProps = {
   arrowSize: "16px",
   direction: "top",
   color: "black",
+  position: "50%",
 };
 
 export default Arrow;
+
+//this will work only it the parent div positon is set to relative
