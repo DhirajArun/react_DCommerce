@@ -12,6 +12,8 @@ import Arrow from "./common/arrow"
 
 import "./styles/textNLink.css"
 import "./styles/form.css"
+import "./styles/box.css"
+import "./styles/colorNImg.css"
 
 
 function App() {
@@ -26,9 +28,6 @@ function App() {
   return (
     <div className="App">
       {navbar}
-      <div id="arrowwwwww" style={{width: "200px", height: "200px", backgroundColor: "red", position: "relative", margin: "20px"}}>
-        <Arrow className="aa" color = "red" direction="top" />
-      </div>
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/signin" component={SignInForm} />

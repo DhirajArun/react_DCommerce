@@ -5,6 +5,7 @@ import Search from "./search";
 import "../styles/navbar.css";
 import { getCatlogs } from "../services/fakeCatlogService";
 import AmazonLogo from "./amazonLogo";
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
   state = {
@@ -17,32 +18,38 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div className="nav-bar">
+      <div className="bg-black white flex-row flex-jcsa flex-alc pad-o">
         <AmazonLogo />
-        <div className="location">
-          <div className="location-icon">
-            <FontAwesomeIcon icon={faMapMarkerAlt} />
+
+        <button className="non-btn flex-row flex-ale">
+          <FontAwesomeIcon icon={faMapMarkerAlt} className="rtm-" />
+          <div>
+            <p className="font-sm nav">Hello</p>
+            <p className="font-std-bd nav">Select your address</p>
           </div>
-          <div className=" ln-text">
-            <span className=" little">Hello</span>
-            <span className=" non-little">Select your address</span>
-          </div>
-        </div>
+        </button>
+
         <Search catlogs={this.state.catlogs} />
-        <div className="lang">
+
+        <Link className="no-link">
           <span className="lang-flag"></span>
-          <FontAwesomeIcon icon={faSortDown} style={{ fontSize: "13px" }} />
-        </div>
-        <div className="ln-text">
-          <span className="sign-hello little">Hello, sign in</span>
-          <h5 className="non-little">
-            Account & Lists <FontAwesomeIcon icon={faSortDown} />
-          </h5>
-        </div>
-        <div className="order ln-text">
-          <span className="little">Return</span>
-          <span className="non-little">& Orders</span>
-        </div>
+          <span className="font-std ltp---">
+            <FontAwesomeIcon icon={faSortDown} />
+          </span>
+        </Link>
+        <Link className="no-link" to="/signin">
+          <p className="font-sm nav">Hello, Sign in</p>
+          <p className="font-std-bd nav">
+            Account & Lists
+            <span className="ltp-">
+              <FontAwesomeIcon icon={faSortDown} />
+            </span>
+          </p>
+        </Link>
+        <Link className="no-link" to="/">
+          <p className="font-sm nav">Returns</p>
+          <p className="font-std-bd nav">& Orders</p>
+        </Link>
         <div className="cart">
           <span className="cart-number">0</span>
           <span className="cart-bg"></span>
