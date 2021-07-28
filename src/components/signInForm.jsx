@@ -4,7 +4,6 @@ import Collapser from "../common/collapser";
 import Input from "../common/input";
 import "../styles/components.css";
 import Form from "../common/form";
-import SubmitButton from "../common/submitButton";
 import AnchorBtn from "../common/anchorBtn";
 import FormDiv from "./formDiv";
 import Joi from "joi";
@@ -16,6 +15,7 @@ class SignInForm extends Form {
       password: "",
     },
     errors: {},
+    displayPwd: false,
   };
 
   schema = {
@@ -23,15 +23,39 @@ class SignInForm extends Form {
     password: Joi.string().min(6).max(15).required().label("Password"),
   };
 
+  doSubmit() {
+    console.log("signing");
+  }
+
+  handleInputDisplay = () => {
+    if (!this.state.displayPwd) this.setState({ displayPwd: true });
+  };
+
+  doHalfSubmit = () => {
+    if (!this.state.displayPwd) this.setState({ displayPwd: true });
+  };
+
   render() {
+    const { displayPwd } = this.state;
+    const submit = displayPwd
+      ? this.handleSubmit
+      : (e) => {
+          this.handleHalfSubmit(e, ["username"]);
+        };
     return (
       <div className="sign-form">
         <FormDiv>
           {this.renderTitle("Sign-In")}
-          <form onSubmit={this.handleSubmit} className="btm-ooo">
-            {this.renderInput("username", "Email or mobile Number")}
-            {this.renderSubmitButton("Continue")}
+          <form onSubmit={submit}>
+            {displayPwd
+              ? this.renderInput("password", "Password")
+              : this.renderInput("username", "Email or mobile Number")}
+            {displayPwd && this.renderSubmitButton("sign-In")}
           </form>
+          <div className="btm-oo">
+            {!displayPwd &&
+              this.renderButton("Continue", this.handleInputDisplay)}
+          </div>
           <p className="font-sm">
             By continuing, you agree to Amazon's{" "}
             <a href="#">Condition Of Use</a> and <a href="#">Privacy Notice</a>.

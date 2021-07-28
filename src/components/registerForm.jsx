@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import Joi, { allow } from "joi";
 import Form from "../common/form";
+import { register } from "../services/userService";
+import _ from "lodash";
+import axios from "axios";
 
 class RegisterForm extends Form {
   state = {
@@ -32,6 +35,7 @@ class RegisterForm extends Form {
       .label("Mobile Number"),
     email: Joi.string()
       .email({ tlds: { allow: false } })
+      .optional()
       .label("Email"),
     password: Joi.string().min(6).max(15).required().label("Password"),
     countryCode: Joi.number()
@@ -41,21 +45,17 @@ class RegisterForm extends Form {
       .required(),
   };
 
-  // schema = Joi.object({
-  //   name: Joi.string().min(1).max(20).required().label("Name"),
-  //   mobileNumber: Joi.string()
-  //     .length(10)
-  //     .pattern(/^[0-9]{10}$/)
-  //     .require()
-  //     .label("Mobile Number"),
-  //   email: Joi.string().email(),
-  //   password: Joi.string().min(6).max(15).required().label("Password"),
-  //   countryCodes: Joi.number()
-  //     .integer()
-  //     .min(0)
-  //     .max(this.countryCodes.length - 1)
-  //     .require(),
-  // });
+  doSubmit = async () => {
+    try {
+      const response = await register(
+        _.pick(this.state.data, ["name", "mobileNumber", "email", "password"])
+      );
+
+      console.log(response);
+    } catch (error) {
+      console.log("doSubmit--error", error.response.data);
+    }
+  };
 
   render() {
     return (

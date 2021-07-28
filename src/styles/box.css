@@ -1,0 +1,150 @@
+/* margin */
+
+.mar- {
+  margin: 0.25rem;
+}
+.mar-o {
+  margin: 0.5rem;
+}
+.mar-oo {
+  margin: 1rem;
+}
+.mar-ooo {
+  margin: 1.5rem;
+}
+.mar-oooo {
+  margin: 2rem;
+}
+
+/* bottom margin */
+
+.btm- {
+  margin-bottom: 0.25rem;
+}
+
+.btm-o {
+  margin-bottom: 0.5rem;
+}
+.btm-oo {
+  margin-bottom: 1rem;
+}
+.btm-ooo {
+  margin-bottom: 1.5rem;
+}
+.btm-oooo {
+  margin-bottom: 2rem;
+}
+
+/* Right margin */
+
+.rtm- {
+  margin-right: 0.25rem;
+}
+
+.rtm-o {
+  margin-right: 0.5rem;
+}
+.rtm-oo {
+  margin-right: 1rem;
+}
+.rtm-ooo {
+  margin-right: 1.5rem;
+}
+.rtm-oooo {
+  margin-right: 2rem;
+}
+
+/* padding */
+
+.pad-- {
+  padding: 0.1rem;
+}
+
+.pad- {
+  padding: 0.25rem;
+}
+
+.pad-o {
+  padding: 0.5rem; /* for text and buttons */
+}
+
+.pad-oo {
+  padding: 1rem; /* for boxes */
+}
+
+.pad-oo {
+  padding: 1.5rem;
+}
+
+/* padding left */
+
+.ltp--- {
+  padding-left: 0.05rem;
+}
+
+.ltp-- {
+  padding-left: 0.1rem;
+}
+
+.ltp- {
+  padding-left: 0.25rem;
+}
+
+/* flexBox */
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* jcc means justify content to center */
+.flex-jcc {
+  justify-content: center;
+}
+
+.flex-jcsa {
+  justify-content: space-around;
+}
+
+.flex-jcs {
+  justify-content: flex-start;
+}
+
+/* ale means alignEnd */
+.flex-ale {
+  align-items: flex-end;
+}
+
+.flex-alc {
+  align-items: center;
+}
+
+.flex-als {
+  align-items: flex-start;
+}
+
+/* position */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* display */
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+
+.inline-b {
+  display: inline-block;
+}

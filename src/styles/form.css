@@ -1,0 +1,197 @@
+button {
+  border: none;
+  outline: none;
+}
+
+button.non-btn {
+  background-color: transparent;
+  color: inherit;
+}
+
+.sign {
+  display: block;
+}
+
+label.sign {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+input.sign,
+div.sign,
+select.sign {
+  font-size: 13px;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+  height: 1.85rem;
+  border-radius: var(--sign-border-radius);
+  border: var(--sign-border);
+  cursor: pointer;
+}
+
+input.sign {
+  cursor: text;
+}
+
+input.sign-error,
+div.sign-error,
+select.sign-error {
+  border-color: red;
+}
+
+input.sign-error:focus {
+  outline: red;
+}
+
+p.sign {
+  font-size: 13px;
+  font-weight: 525;
+  line-height: 1.5em;
+  margin-bottom: 0;
+}
+
+p.sign-error {
+  margin-top: 0.25rem;
+  color: red;
+}
+p.sign-error > span {
+  font-style: italic;
+  margin-right: 0.5rem;
+}
+
+div.input-with-select {
+  display: grid;
+  grid-template-columns: auto 75%;
+  grid-template-rows: min-content;
+}
+
+/* signInForm */
+div.sign-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* list-types */
+ul.col > li {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* submit button */
+button.btn-submit {
+  padding: 0.5rem;
+  background-color: orange;
+  display: block;
+}
+
+button.btn-submit:hover {
+  background-color: rgb(241, 157, 1);
+}
+
+div.form-nav {
+  display: flex;
+  justify-content: center;
+}
+
+div.signin-form > div {
+  flex-grow: 0;
+  width: 350px;
+}
+
+div.main-form {
+  padding: 1rem;
+  text-align: left;
+  width: max-content;
+  border: 1px solid #767676;
+  border-radius: 2%;
+}
+
+div.secondary-form {
+  padding: 2.5rem 0;
+  text-align: center;
+  width: 350px;
+}
+
+div.separator-bar {
+  height: 1px;
+  width: 100%;
+  background-color: #767676;
+}
+
+p.new-t-a {
+  line-height: 1rem;
+  position: relative;
+  bottom: 0.5em;
+  color: #767676;
+  background-color: white;
+  width: max-content;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 0.25rem;
+}
+
+/* option input */
+
+div.option-input-main {
+  display: grid;
+  grid-template-columns: auto 75%;
+}
+
+input.option-input-in {
+  font-size: 13px;
+  display: inline-block;
+  padding: 0.25rem;
+}
+
+/* c-select  */
+
+div.c-select {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 13px;
+}
+
+div.c-select-maxcontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+}
+
+div.c-select-full {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p.c-select-title {
+  margin-bottom: 0;
+  margin-right: 0.25rem;
+  font-size: 13px;
+}
+
+ul.c-select {
+  position: absolute;
+  top: 0px;
+  border-radius: 3px;
+  width: max-content;
+  padding: 0.2rem 0.01px;
+  border: 0.5px solid black;
+  margin-top: 0px;
+  background-color: white;
+  cursor: pointer;
+}
+
+li.c-select {
+  padding: 0.2rem;
+  padding-right: 0.5rem;
+}
+
+li.c-select:hover {
+  background-color: #767676;
+}

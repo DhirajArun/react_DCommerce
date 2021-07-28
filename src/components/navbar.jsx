@@ -6,6 +6,8 @@ import "../styles/navbar.css";
 import { getCatlogs } from "../services/fakeCatlogService";
 import AmazonLogo from "./amazonLogo";
 import { Link } from "react-router-dom";
+import withHoverFeature from "../HOC/withHoverFeature";
+import Arrow from "../common/arrow";
 
 class Navbar extends Component {
   state = {
@@ -16,7 +18,21 @@ class Navbar extends Component {
     this.setState({ catlogs: getCatlogs() });
   }
 
+  // handleLangHover(hovered) {
+  //   console.log("hello world", hovered);
+  // }
+
   render() {
+    // const langElement = (
+    //   <Link className="no-link">
+    //     <span className="lang-flag"></span>
+    //     <span className="font-std ltp---">
+    //       <FontAwesomeIcon icon={faSortDown} />
+    //     </span>
+    //   </Link>
+    // );
+    // const Lang = withHoverFeature(langElement, this.handleLangHover);
+
     return (
       <div className="bg-black white flex-row flex-jcsa flex-alc pad-o">
         <AmazonLogo />
@@ -31,12 +47,8 @@ class Navbar extends Component {
 
         <Search catlogs={this.state.catlogs} />
 
-        <Link className="no-link">
-          <span className="lang-flag"></span>
-          <span className="font-std ltp---">
-            <FontAwesomeIcon icon={faSortDown} />
-          </span>
-        </Link>
+        <Lang />
+
         <Link className="no-link" to="/signin">
           <p className="font-sm nav">Hello, Sign in</p>
           <p className="font-std-bd nav">
@@ -58,5 +70,34 @@ class Navbar extends Component {
     );
   }
 }
+
+const Lang = withHoverFeature((props) => {
+  return (
+    <div className="relative">
+      <Link className="no-link">
+        <span className="lang-flag"></span>
+        <span className="font-std ltp---">
+          <FontAwesomeIcon icon={faSortDown} />
+        </span>
+      </Link>
+      {props.isHover && (
+        <div
+          className="absolute bg-white black pad-oo flex-col flex-als"
+          style={{
+            width: "max-content",
+            top: "130%",
+            transform: "translateX(-30%)",
+          }}
+        >
+          <Arrow color="white" arrowSize="10px" position="51.6%" />
+          <div>
+            <input type="radio" className="rtm-"></input>
+            <label>English - EN</label>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+});
 
 export default Navbar;

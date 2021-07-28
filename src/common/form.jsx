@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Input from "./input";
 import InputWithSelect from "./inputWithSelect";
-import SubmitButton from "./submitButton";
 import dJoi from "../utils/dJoi";
 
 class Form extends Component {
@@ -14,14 +13,14 @@ class Form extends Component {
     const errorMsgs = dJoi.validate(this.state.data, this.schema, {
       abortEarly: false,
     });
-    const errors = {};
 
+    const errors = {};
     if (errorMsgs) {
       errorMsgs.forEach((e) => {
         errors[e.path] = e.message;
       });
-    }
-    this.setState({ errors });
+      return errors;
+    } else return null;
   }
 
   validateProperty(input) {
@@ -45,8 +44,40 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.validate();
-    console.log("Submitted");
+
+    const errors = this.validate();
+
+    this.setState({ errors: errors || {} });
+
+    if (errors) return;
+
+    this.doSubmit();
+  };
+
+  handleHalfSubmit = (e, names) => {
+    e.preventDefault();
+
+    const errors = {};
+    let isError = false;
+    names.forEach((item) => {
+      const msg = this.validateProperty({
+        name: item,
+        value: this.state.data[item],
+      });
+
+      if (msg) {
+        isError = true;
+        errors[item] = msg;
+      }
+    });
+
+    this.setState({ errors: isError ? errors : null });
+
+    if (isError) {
+      return;
+    }
+
+    this.doHalfSubmit();
   };
 
   handleCustomSelect = ({ name, value }) => {
@@ -92,7 +123,19 @@ class Form extends Component {
   }
 
   renderSubmitButton(label) {
-    return <SubmitButton>{label}</SubmitButton>;
+    return (
+      <button className="btn-submit block" type="submit">
+        {label}
+      </button>
+    );
+  }
+
+  renderButton(label, handleClick) {
+    return (
+      <button className="btn-submit block" onClick={handleClick}>
+        {label}
+      </button>
+    );
   }
 }
 

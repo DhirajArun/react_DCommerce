@@ -6,7 +6,7 @@ function validate(data, schema, options = {}) {
 }
 
 function getErrorMsg(errorResult) {
-    if (!errorResult.error) return;
+    if (!errorResult.error) return null;
     const errors = errorResult.error.details.map((item) => {
       const error = {};
       switch (item.type) {
@@ -25,8 +25,6 @@ function getErrorMsg(errorResult) {
         case "string.length":
           error.message = `${item.context.label} must be of ${item.context.limit} characters.`;
           break;
-        default:
-          error.message = "";
       }
       error.path = item.path;
       return error;
