@@ -27,11 +27,7 @@ class SignInForm extends Form {
     console.log("signing");
   }
 
-  handleInputDisplay = () => {
-    if (!this.state.displayPwd) this.setState({ displayPwd: true });
-  };
-
-  doHalfSubmit = () => {
+  doPartialSubmit = () => {
     if (!this.state.displayPwd) this.setState({ displayPwd: true });
   };
 
@@ -40,22 +36,19 @@ class SignInForm extends Form {
     const submit = displayPwd
       ? this.handleSubmit
       : (e) => {
-          this.handleHalfSubmit(e, ["username"]);
+          this.handlePartialSubmit(e, ["username"]);
         };
+
     return (
       <div className="sign-form">
         <FormDiv>
           {this.renderTitle("Sign-In")}
-          <form onSubmit={submit}>
+          <form onSubmit={submit} className="btm-oo">
             {displayPwd
               ? this.renderInput("password", "Password")
               : this.renderInput("username", "Email or mobile Number")}
-            {displayPwd && this.renderSubmitButton("sign-In")}
+            {this.renderButton(displayPwd ? "sign-In" : "Continue")}
           </form>
-          <div className="btm-oo">
-            {!displayPwd &&
-              this.renderButton("Continue", this.handleInputDisplay)}
-          </div>
           <p className="font-sm">
             By continuing, you agree to Amazon's{" "}
             <a href="#">Condition Of Use</a> and <a href="#">Privacy Notice</a>.

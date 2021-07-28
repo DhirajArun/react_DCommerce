@@ -33,30 +33,7 @@ class Form extends Component {
     } else return null;
   }
 
-  handleChange = ({ currentTarget: input }) => {
-    const errors = { ...this.state.errors };
-    const data = { ...this.state.data };
-    data[input.name] = input.value;
-    const errorMessage = this.validateProperty(input);
-    errors[input.name] = errorMessage;
-    this.setState({ data, errors });
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-
-    const errors = this.validate();
-
-    this.setState({ errors: errors || {} });
-
-    if (errors) return;
-
-    this.doSubmit();
-  };
-
-  handleHalfSubmit = (e, names) => {
-    e.preventDefault();
-
+  validateParitally = (names) => {
     const errors = {};
     let isError = false;
     names.forEach((item) => {
@@ -71,13 +48,44 @@ class Form extends Component {
       }
     });
 
-    this.setState({ errors: isError ? errors : null });
+    return isError ? errors : null;
+  };
 
-    if (isError) {
+  handleChange = ({ currentTarget: input }) => {
+    const errors = { ...this.state.errors };
+    const data = { ...this.state.data };
+    data[input.name] = input.value;
+    const errorMessage = this.validateProperty(input);
+    errors[input.name] = errorMessage;
+    this.setState({ data, errors });
+  };
+
+  handleSubmit = (e) => {
+    console.log("submit");
+    e.preventDefault();
+
+    const errors = this.validate();
+
+    this.setState({ errors: errors || {} });
+
+    if (errors) return;
+
+    this.doSubmit();
+  };
+
+  handlePartialSubmit = (e, names) => {
+    console.log("halfSubmit");
+    e.preventDefault();
+
+    const errors = this.validateParitally(names);
+
+    this.setState({ errors: errors || {} });
+
+    if (errors) {
       return;
     }
 
-    this.doHalfSubmit();
+    this.doPartialSubmit();
   };
 
   handleCustomSelect = ({ name, value }) => {
@@ -119,14 +127,6 @@ class Form extends Component {
         onSelect={this.handleCustomSelect}
         error={errors[name]}
       />
-    );
-  }
-
-  renderSubmitButton(label) {
-    return (
-      <button className="btn-submit block" type="submit">
-        {label}
-      </button>
     );
   }
 
