@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import FormDiv from "./formDiv";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
-import Joi, { allow } from "joi";
+import Joi from "joi";
 import Form from "../common/form";
 import { register } from "../services/userService";
 import _ from "lodash";
-import axios from "axios";
+import { phoneRegex, emailRegex } from "../utils/regexs";
 
 class RegisterForm extends Form {
   state = {
@@ -30,13 +30,10 @@ class RegisterForm extends Form {
   schema = {
     name: Joi.string().max(20).required().label("Name"),
     mobileNumber: Joi.string()
-      .pattern(/^[0-9]{10}$/)
+      .pattern(phoneRegex)
       .required()
       .label("Mobile Number"),
-    email: Joi.string()
-      .email({ tlds: { allow: false } })
-      .optional()
-      .label("Email"),
+    email: Joi.string().max(40).regex(emailRegex).optional().label("Email"),
     password: Joi.string().min(6).max(15).required().label("Password"),
     countryCode: Joi.number()
       .integer()
@@ -79,7 +76,7 @@ class RegisterForm extends Form {
               </p>
               <p className="sign">Message and Data rates may apply.</p>
             </div>
-            {this.renderSubmitButton("Continue")}
+            {this.renderButton("Continue")}
           </form>
           <div>
             <p className="sign">

@@ -7,6 +7,8 @@ import Form from "../common/form";
 import AnchorBtn from "../common/anchorBtn";
 import FormDiv from "./formDiv";
 import Joi from "joi";
+import { userRegex } from "../utils/regexs";
+import auth from "../services/authService";
 
 class SignInForm extends Form {
   state = {
@@ -19,12 +21,21 @@ class SignInForm extends Form {
   };
 
   schema = {
-    username: Joi.string().max(40).required().label("Username"),
+    username: Joi.string()
+      .max(40)
+      .regex(userRegex)
+      .required()
+      .label("Username"),
     password: Joi.string().min(6).max(15).required().label("Password"),
   };
 
-  doSubmit() {
-    console.log("signing");
+  async doSubmit() {
+    try {
+      const response = await auth.login(this.state.data);
+      console.log(response);
+    } catch (error) {
+      console.log(error.response.data);
+    }
   }
 
   doPartialSubmit = () => {
